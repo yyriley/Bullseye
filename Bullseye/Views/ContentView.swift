@@ -15,8 +15,7 @@ struct ContentView: View {
   
   var body: some View {
     ZStack {
-      Color("BackgroundColor")
-        .edgesIgnoringSafeArea(.all)
+      BackgroundView(game: $game)
       VStack {
         InstructionView(game: $game)
         SliderView(sliderValue: $sliderValue)
@@ -73,6 +72,10 @@ struct HitMeButton: View {
       }
     )
     .cornerRadius(21)
+    .overlay(
+      RoundedRectangle(cornerRadius: 21.0)
+        .strokeBorder(Color.white, lineWidth: 2.0)
+    )
     .alert(isPresented: $alertIsVisible, content: {
       let roundedValue = Int(self.sliderValue.rounded())
       //return the alert we want to show
