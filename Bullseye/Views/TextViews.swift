@@ -55,6 +55,32 @@ struct LabelText: View {
   }
 }
 
+struct BodyText: View {
+  var text: String
+  
+  var body: some View {
+    Text(text)
+      .font(.headline)
+      .fontWeight(.semibold)
+      .multilineTextAlignment(.center)
+      .lineSpacing(12.0)
+  }
+}
+
+struct ButtonText: View {
+  var text: String
+  
+  var body: some View {
+    Text(text)
+      .bold()
+      .padding()
+      .frame(maxWidth: .infinity)
+      .background(Color.accentColor)
+      .cornerRadius(12.0)
+      .foregroundColor(.white)
+  }
+}
+
 struct TextViews_Previews: PreviewProvider {
   static var previews: some View {
     VStack{
@@ -62,6 +88,9 @@ struct TextViews_Previews: PreviewProvider {
     BigNumberText(text: "999")
     SliderLabelText(text: "1")
     LabelText(text: "Score")
+    BodyText(text: "You scored 200 Points\n🎉🎉🎉")
+      ButtonText(text: "Start New Round")
     }
+    .padding()
   }
 }
