@@ -13,6 +13,7 @@ struct ContentView: View {
   @State private var sliderValue = 50.0
   @State private var game = Game()
   
+  
   var body: some View {
     ZStack {
       BackgroundView(game: $game)
@@ -29,6 +30,7 @@ struct ContentView: View {
       }
       if !alertIsVisible {
         SliderView(sliderValue: $sliderValue)       .transition(.scale)
+
       }
     }
   }
@@ -81,10 +83,10 @@ struct HitMeButton: View {
         LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
       }
     )
-    .cornerRadius(21)
+    .cornerRadius(Constants.General.roundRectCornerRadius)
     .overlay(
-      RoundedRectangle(cornerRadius: 21.0)
-        .strokeBorder(Color.white, lineWidth: 2.0)
+      RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
+        .strokeBorder(Color.white, lineWidth: Constants.General.strokedWidth)
     )
   }
 }

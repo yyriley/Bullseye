@@ -12,7 +12,7 @@ struct Shapes: View {
     VStack {
       Circle()
       //.fill(Color.blue)
-        .strokeBorder(Color.blue, lineWidth: 20)
+        .strokeBorder(Color.blue, lineWidth: Constants.General.strokedWidth)
         .frame(width: 200, height: 100)
       Capsule()
         .fill(Color.blue)
